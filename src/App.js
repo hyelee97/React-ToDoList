@@ -1,13 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import TodoListTemplate from './component/js/TodoListTemplate';
+import Form from './component/js/Form';
+import TodoItemList from './component/js/TodoItemList';
 
-function App() {
-  return (
-    <div className="App">
-      To-do List 만들기. go go go~
-      GIT TEST
-    </div>
-  );
-}
+
+class App extends React.Component {
+  render() {
+    return (
+      <TodoListTemplate form={<Form/>}>
+        <TodoItemList />
+      </TodoListTemplate>
+    );
+  } ;
+};
 
 export default App;
