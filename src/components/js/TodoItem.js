@@ -2,8 +2,17 @@ import React from 'react';
 import '../css/TodoItem.css';
  
 class TodoItem extends React.Component {
+
+    // *** Form.js 에서 Hook(useState) 사용으로 인해 제거
+    /*
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.isComplete !== nextProps.isComplete;
+    }
+    */
+ 
     render() {
         const {content, isComplete, id, onToggle, onRemove} = this.props;
+        console.log(id);
  
         return (
             //컴포넌트의 최상위 DOM 의 클릭 이벤트에는 onToggle 을 설정하고, x 가 있는 부분에는 onRemove 를 설정해주었다.
