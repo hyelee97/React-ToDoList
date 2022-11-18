@@ -7,7 +7,7 @@ import TodoItemList from './components/js/TodoItemList';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.id = 0; //초기값 설정
+    //this.id = 0; //초기값 설정
     this.state = {
         //input: "", // *** Form.js 에서 Hook(useState) 사용으로 인해 제거
         todos: [
@@ -29,7 +29,7 @@ class App extends React.Component {
 
 
   handleInitInfo() {
-    fetch("/api/todos")
+    fetch("/api/todos/all.do")
         .then(res => res.json())
         .then(todos => this.setState({todos : todos}))
         .catch(err => console.log(err))
@@ -54,12 +54,12 @@ class App extends React.Component {
         alert("오늘 할 일을 입력해주세요!");
         return;
     }
-    console.log("this.id=" , this.id);
+
     // 화면에서 먼저 변경사항을 보여주는 방법으로 이용
     this.setState({
         //input: "",
         todos: todos.concat({ // concat 을 사용하여 배열에 추가
-            id: this.id++, // 임의의 id를 부여하여 key error 를 방지 //this.id++,
+            id: 0, // 임의의 id를 부여하여 key error 를 방지 //this.id++,
             content: inputValue,
             isComplete: false
         })
@@ -72,9 +72,11 @@ class App extends React.Component {
       method: 'post'
     }
 
-    fetch("/api/todos", data)
+    fetch("/api/todos/add.do", data)
     .then(res=>{
-      if( !res.OK){
+      console.log(res);
+      console.log(res.text);
+      if(!res.ok){
         throw new Error(res.status);
       }else{
         return this.handleInitInfo();        
@@ -122,7 +124,7 @@ class App extends React.Component {
       headers: {'Content-Type':'application/json'},
       method: 'put'
     }
-    fetch("/api/todos/" + id, data)
+    fetch("/api/todos/update.do" + id, data)
     .then(res => {
         if(!res.ok) {
             throw new Error(res.status);
@@ -152,7 +154,7 @@ class App extends React.Component {
       headers: {'Content-Type':'application/json'},
       method: 'delete'
     }
-    fetch("/api/todos/" + id, data)
+    fetch("/api/todos/delete.do" + id, data)
     .then(res => {
         if(!res.ok) {
             throw new Error(res.status);

@@ -12,7 +12,7 @@ class TodoItem extends React.Component {
  
     render() {
         const {content, isComplete, id, onToggle, onRemove} = this.props;
-        console.log(id);
+        console.log(content , isComplete);
  
         return (
             //컴포넌트의 최상위 DOM 의 클릭 이벤트에는 onToggle 을 설정하고, x 가 있는 부분에는 onRemove 를 설정해주었다.

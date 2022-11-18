@@ -28,7 +28,7 @@ class TodoItemList extends React.Component {
         */
         const todoList = todos.map (
             (todo) => (
-                  <TodoItem
+                <TodoItem
                       {...todo}
                       onToggle={onToggle}
                       onRemove={onRemove}
