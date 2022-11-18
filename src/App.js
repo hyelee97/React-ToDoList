@@ -5,7 +5,7 @@ import TodoItemList from './components/js/TodoItemList';
 
 
 class App extends React.Component {
-  constructor(props) {
+  constructor(props) { 
     super(props);
     //this.id = 0; //초기값 설정
     this.state = {
