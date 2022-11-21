@@ -74,8 +74,8 @@ class App extends React.Component {
 
     fetch("/api/todos/add.do", data)
     .then(res=>{
-      console.log(res);
-      console.log(res.text);
+      //console.log(res);
+      //console.log(res.text);
       if(!res.ok){
         throw new Error(res.status);
       }else{
