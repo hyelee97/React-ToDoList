@@ -124,7 +124,7 @@ class App extends React.Component {
       headers: {'Content-Type':'application/json'},
       method: 'put'
     }
-    fetch("/api/todos/update.do" + id, data)
+    fetch("/api/todos/" + id, data)
     .then(res => {
         if(!res.ok) {
             throw new Error(res.status);
@@ -154,7 +154,7 @@ class App extends React.Component {
       headers: {'Content-Type':'application/json'},
       method: 'delete'
     }
-    fetch("/api/todos/delete.do" + id, data)
+    fetch("/api/todos/" + id, data)
     .then(res => {
         if(!res.ok) {
             throw new Error(res.status);
